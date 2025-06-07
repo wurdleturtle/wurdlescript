@@ -1,1 +1,1 @@
-function TestCode()   {console.log('hello');console.log('Hey penis');}TestCode();function Multiple()   {console.log('multipletest');TestCode();}Multiple();
+function WurdleTest()   {console.log('test');}WurdleTest();

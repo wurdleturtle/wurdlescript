@@ -126,20 +126,24 @@ function compile(inputFile, outputFile) {
     tokens.forEach((token) => {
       compiledCode += parseTokens(token.type, token.value);
     });
+    if (outputFile === "evaluate") {
+      eval(compiledCode);
+      return;
+    }
     fs.writeFileSync(outputFile, compiledCode);
-    console.log(`Compiled ${inputFile} to ${outputFile} successfully!`);
+    console.log(`Compiled ${inputFile} to ${outputFile} successfully`);
     console.log("Compiled code:");
     console.log(compiledCode);
   } catch (error) {
-    console.error(`Error: ${error.message}`);
+    console.error(`Error in compilation: ${error.message}`);
   }
 }
 const args = process.argv.slice(2);
 if (args.length < 1) {
   console.log("Usage: node wurdle-compiler.js <input.wurdle> [output.js]");
-  console.log("Example: node wurdle-compiler.js test.wurdle test.js");
+  console.log("Example: node wurdle-compiler.js example.wurdle");
   process.exit(1);
 }
 const inputFile = args[0];
-const outputFile = args[1] || inputFile.replace(".wurdle", ".js");
+const outputFile = args[1] || "evaluate";
 compile(inputFile, outputFile);

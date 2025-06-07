@@ -1,0 +1,5 @@
+func Wurdle: Void {
+  log('test eval')
+}
+
+Wurdle;
