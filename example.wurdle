@@ -1,5 +1,11 @@
+var one = 1;
+var two = 2;
+
 func Wurdle: Void {
-  log('test eval')
+  log('test eval');
+  log(one);
+  log(two);
+  log(one + two);
 }
 
 Wurdle;
